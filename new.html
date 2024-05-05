@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="styling.css" />
+  <link rel="icon" type="image/x-icon"  href="https://i.pinimg.com/564x/1d/7f/a1/1d7fa1b052f6b98cd985fe9ddb1525a0.jpg">
+</head>
+
+<body>
+  <!-- 
+    <header>
+    <h1>Welcome to my personal portfolio.</h1>
+    </header>
+    -->
+  <section class="first-box">
+    <p class="logo">T &#9829; T</p>
+    <a href="#home" class="scroll-link">HOME</a>
+    <a href="#about-me" class="scroll-link">ABOUT</a>
+    <a href="layout.html" target="_blank">PORTFOLIO</a>
+    <a href="#contact-section" class="scroll-link">CONTACT</a>
+
+    <a href="https://www.facebook.com/KateyyCakes/" class="fa fa-facebook facebook" target="_blank"></a>
+    <a href="https://www.linkedin.com/in/tendai-teremuka-235693273/" class="fa fa-linkedin linkedin"
+      target="_blank"></a>
+    <a href="https://www.instagram.com/_katey.cakes?igsh=MXEzbGZnODdyNHNiaw==" class="fa fa-instagram instagram"
+      target="_blank"></a>
+  </section>
+  
+  <br /><br /><br />
+  <div class="container" id="home">
+    <div class="column position">
+      <h1>
+        Hi, I'm Tendai <br />
+        <span style="color: orange">Teremuka</span>
+      </h1>
+      <h3>An aspiring web developer</h3>
+      <button class="contactme" onclick="scrollToContact()">Contact me</button>
+      <a href="Tendai Resume.pdf" download="Tendai Resume.pdf" class="button">Download CV</a>
+
+    </div>
+
+    <div class="column">
+      <img
+        src="https://media.licdn.com/dms/image/D4D03AQEqPOzas3W5dw/profile-displayphoto-shrink_400_400/0/1703053832299?e=1712793600&v=beta&t=NumhIcP1v9GdxT3ijndnZs_LMJMdUsMa7ZJB533Icz8"
+        alt="My Picture" class="image" />
+    </div>
+  </div> <br><br>
+
+  <div class="container" id="about-me">
+    <div class="column color-box">
+      <img
+        src="data:image/jpeg;base64,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"
+        class="logo-position" alt="Oasis Infobyte Internship" />
+      <p>
+        I am presently engaged in the Oasis Inforbyte internship program,
+        specifically contributing to the web development segment. Within this
+        role, my primary focus revolves around the conceptualization and
+        design of web pages. As part of the internship challenge, I am
+        currently dedicated to the development of my personal portfolio.
+      </p>
+    </div>
+
+
+    <div class="column color-box">
+      <img
+        src="https://www.shecodesfoundation.org/assets/foundation/logo-dark-decc8be537fba3be6687bdba4c8b7449a97494830b0f6f2e42f88ee14264acdd.png"
+        class="logo-position" alt="SheCodes Foundation" />
+      <p>
+        I am also an active participant in the SheCodes foundation, it's
+        dedicated to offering complimentary coding courses aimed at empowering
+        women with essential skills to enter the technology sector and pursue
+        employment opportunities within companies. My involvement with this
+        foundation has greatly enhanced my proficiency in web development.
+      </p>
+    </div>
+
+    <div class="column color-box">
+      <img src="https://salcoc.co.za/wp-content/uploads/2021/05/Richfield_logo_white.jpg" class="logo-position"
+        alt="Richfield College" />
+      <p>
+        I am presently enrolled as a second-year student at Richfield College,
+        pursuing a Bachelor of Science degree with a specialization in
+        Information Technology. Through my academic endeavors, I have acquired
+        proficiency in HTML, CSS, JavaScript, and Python, as imparted by the
+        curriculum.
+      </p>
+    </div>
+  </div>
+  <hr />
+  <br>
+  <h1 style="margin-left: 35%">EXPERIENCE</h1>
+  <div class="flexbox">
+    <div>
+      <img src="https://i.pinimg.com/564x/0e/7d/4a/0e7d4ad55cdc3db527af6c3d72f41ad0.jpg" class="html-icon"
+        alt="HTML Icon" />
+      <h4>HTML</h4>
+    </div>
+    <div>
+      <img src="https://i.pinimg.com/564x/ee/b3/5d/eeb35df1a6739f4cea43ed1cba70bc25.jpg" alt="CSS Icon"
+        class="css-icon" />
+      <h4>CSS3</h4>
+    </div>
+  </div>
+
+  <div class="flexbox">
+    <div>
+      <img src="https://i.pinimg.com/564x/f3/0b/48/f30b482856ec9d2f52753459980dfc3f.jpg" alt="JavaScript Icon"
+        class="js-icon" />
+      <h4>JavaScript</h4>
+    </div>
+    <div>
+      <img src="https://i.pinimg.com/564x/ed/66/63/ed666327dd3ce274d94f2b3547155891.jpg" alt="Python Icon"
+        class="python-icon" />
+      <h4>Python</h4>
+    </div>
+  </div>
+
+  <hr />
+  <br />
+  <div class="contact-section">
+    <b>
+      <h1 id="contact-section">C O N T A C T</h1>
+    </b>
+    <b>
+      <h2 class="align" id="contact-section">Get In Touch</h2>
+    </b>
+  </div>
+
+  <div class="container">
+    <div class="column">
+      <h3>Feel free to contact me </h3>
+      <p>Send me a message using the email and contact number below or leave me your details and i'll be in
+        touch😉</p>
+      <div>
+        <div class="icon-container"><i class="fa fa-phone"></i></div>
+        <div class="details">
+          <p>+27 73 032 2088</p>
+        </div>
+      </div>
+      <br><br>
+      <div>
+        <div class="icon-container"><i class="fa fa-envelope-o"></i></div>
+        <div class="details">
+          <p>blessingteremuka@gmail.com</p>
+        </div>
+      </div>
+      <br><br>
+      <div>
+        <div class="icon-container"><i class="fa fa-map-marker"></i></div>
+        <div class="details">
+          <p>Shannons Green <br> Summer Greens <br> Milnerton 7441</p>
+        </div>
+      </div>
+    </div>
+    <form id="contactForm">
+      <div class="column">
+        <input type="text" class="name" placeholder="Your Name" required> <br><br><br>
+        <input type="text" class="surname" placeholder="Your Surname" required><br><br><br>
+        <input type="email" class="email" placeholder="Your Email" required> <br><br><br><br><br>
+        <textarea name="message" id="message" cols="30" rows="10" placeholder="Write your message here..."></textarea>
+      </div>
+  </div>
+
+  <div class="container">
+    <div class="column">
+      <div class="social-icons-container">
+        <a href="https://www.facebook.com/KateyyCakes/" class="fa fa-facebook facebook" target="_blank"></a>
+        <a href="https://www.linkedin.com/in/tendai-teremuka-235693273/" class="fa fa-linkedin linkedin social-icons"
+          target="_blank"></a>
+        <a href="https://www.instagram.com/_katey.cakes?igsh=MXEzbGZnODdyNHNiaw=="
+          class="fa fa-instagram instagram social-icons" target="_blank"></a>
+      </div>
+    </div>
+
+    <div class="column">
+      <button class="send-message ">Send Message <i class="fa fa-send icon-container send-icon"></i></button>
+    </div>
+  </div>
+  </form>
+
+
+  <script>
+    function scrollToContact() {
+      var contactSection = document.getElementById("contact-section");
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var scrollLinks = document.querySelectorAll(".scroll-link");
+
+      scrollLinks.forEach(function (scrollLink) {
+        scrollLink.addEventListener("click", function (event) {
+          event.preventDefault();
+          var targetId = this.getAttribute("href").substring(1);
+          var targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+    });
+
+    document
+      .getElementById("contactForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        alert("Thank you! We will be in touch soon");
+      });
+  </script>
+</body>
+
+</html>
