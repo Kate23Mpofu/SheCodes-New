@@ -108,6 +108,28 @@
             font-size: 14px;
             color: gray;
         }
+
+        .forecast-day {
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .forecast-day img {
+            width: 60px;
+            height: 60px;
+            margin: 10px 0;
+        }
+
+        .otherDays {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .otherDays section {
+            display: flex;
+            gap: 2rem;
+        }
     </style>
 </head>
 
@@ -120,6 +142,7 @@
                 <input type="submit" value="Search" class="search-form-btn">
             </form>
         </header>
+
         <main>
             <div class="weather-info">
                 <div>
@@ -138,11 +161,12 @@
                     <div class="units">°C</div>
                 </div>
             </div>
+            <div class="otherDays"></div>
         </main>
 
         <footer>
             This project was coded by
-            <a href="https://github.com/Kate23Mpofu" target="_blank"> Kitty Mpofu</a>,
+            <a href="https://github.com/Kate23Mpofu" target="_blank"> Tendai Teremuka</a>,
             is
             <a href="hthttps://github.com/Kate23Mpofu/SheCodes-New" target="_blank">open-sourced on GitHub</a>
             and
@@ -192,10 +216,18 @@
             return `${day} ${hours}:${minutes}`;
         }
 
+        function getForecast(city) {
+            let apiKey = "2aa6oc0e5afc5bbfc3ab353554ft1704";
+            let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
+            axios.get(apiUrl).then(displayForecast);
+        }
+
         function searchCity(city) {
             let apiKey = "2aa6oc0e5afc5bbfc3ab353554ft1704";
             let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
             axios.get(apiUrl).then(refreshWeather);
+            getForecast(city);
         }
 
         function handleSearchSubmit(event) {
@@ -204,12 +236,34 @@
 
             searchCity(searchInput.value);
         }
+        
+        function displayForecast(response) {
+            let forecast = response.data.daily;
+            let forecastHTML = `<section>`;
+                
+                forecast.slice(1, 6).forEach(function (day) {
+                    let date = new Date(day.time * 1000);
+                    let options = { weekday: 'short' };
+                    let dayName = date.toLocaleDateString('en-US', options);
+                    
+                    forecastHTML += `
+                    <div class="forecast-day">
+                        <h2>${dayName}</h2>
+                        <img src="${day.condition.icon_url}" alt="${day.condition.description}" />
+                        <p>${Math.round(day.temperature.day)}°C</p>
+                        </div>
+                        `;
+                    });   
 
-        let searchFormElement = document.querySelector("#search-form");
-        searchFormElement.addEventListener("submit", handleSearchSubmit);
-
-        searchCity("Pretoria");
-    </script>
-</body>
-
-</html>
+                    forecastHTML += `</section>`;
+                    document.querySelector(".otherDays").innerHTML = forecastHTML;
+                }
+                
+                let searchFormElement = document.querySelector("#search-form");
+                searchFormElement.addEventListener("submit", handleSearchSubmit);
+                
+                searchCity("Pretoria");
+                
+                </script>
+                </body>
+                </html>
